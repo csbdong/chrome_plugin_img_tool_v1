@@ -1,0 +1,31 @@
+{
+    "manifest_version": 3,
+    "name": "imageHelper",
+    "version": "0.0.1",
+    "description": "网页图片小工具",
+    "icons": {
+      "16": "images/download.png",
+      "48": "images/download.png",
+      "128": "images/download.png"
+    },
+    "action":{},
+    "options_ui": {
+        "page": "./src/options.html",
+        "open_in_tab": true
+      },
+    "content_scripts": [
+        {
+          "matches": ["https://*/*"],
+          "js": ["src/main.js"]
+        }
+      ],
+      "permissions": [
+        "storage",
+        "tabs",
+        "activeTab",
+        "downloads",
+        "contextMenus"
+      ], "background":{
+        "service_worker": "src/service_worker.js"
+      }
+  }
